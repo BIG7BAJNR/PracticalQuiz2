@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>A-Frame Practical Quiz – Table Scene</title>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+  </style>
+</head>
+<body>
+
+<a-scene background="color: #87CEEB">
+
+  <!-- ============================================================
+       LIGHTING
+  ============================================================ -->
+  <a-light type="ambient" color="#ffffff" intensity="0.6"></a-light>
+  <a-light type="directional" color="#ffffff" intensity="0.8"
+           position="5 10 5"></a-light>
+
+  <!-- ============================================================
+       GROUND
+  ============================================================ -->
+  <a-plane position="0 0 0" rotation="-90 0 0"
+           width="30" height="30" color="#4a7c59"></a-plane>
+
+  <!-- ============================================================
+       DECORATIVE ELEMENTS – beautify the scene
+  ============================================================ -->
+
+  <!-- Sky-dome tint already handled by background -->
+
+  <!-- Path tiles leading to table -->
+  <a-box position="0 0.01 3"  width="1.2" height="0.02" depth="0.8" color="#c8b89a"></a-box>
+  <a-box position="0 0.01 2"  width="1.2" height="0.02" depth="0.8" color="#c8b89a"></a-box>
+  <a-box position="0 0.01 1"  width="1.2" height="0.02" depth="0.8" color="#c8b89a"></a-box>
+
+  <!-- Decorative bushes (left) -->
+  <a-sphere position="-3 0.5 1"  radius="0.6" color="#2d6a4f"></a-sphere>
+  <a-sphere position="-3.8 0.5 2" radius="0.5" color="#1b4332"></a-sphere>
+  <a-sphere position="-2.5 0.4 2.5" radius="0.45" color="#40916c"></a-sphere>
+
+  <!-- Decorative bushes (right) -->
+  <a-sphere position="3 0.5 1"   radius="0.6" color="#2d6a4f"></a-sphere>
+  <a-sphere position="3.8 0.5 2" radius="0.5" color="#1b4332"></a-sphere>
+  <a-sphere position="2.5 0.4 2.5" radius="0.45" color="#40916c"></a-sphere>
+
+  <!-- Small fence posts -->
+  <a-cylinder position="-4 0.4 0" radius="0.06" height="0.8" color="#8B6914"></a-cylinder>
+  <a-cylinder position="-4 0.4 -1" radius="0.06" height="0.8" color="#8B6914"></a-cylinder>
+  <a-cylinder position="-4 0.4 -2" radius="0.06" height="0.8" color="#8B6914"></a-cylinder>
+  <a-cylinder position="4 0.4 0" radius="0.06" height="0.8" color="#8B6914"></a-cylinder>
+  <a-cylinder position="4 0.4 -1" radius="0.06" height="0.8" color="#8B6914"></a-cylinder>
+  <a-cylinder position="4 0.4 -2" radius="0.06" height="0.8" color="#8B6914"></a-cylinder>
+  <!-- Fence rails -->
+  <a-box position="-4 0.65 -1" width="0.04" height="0.08" depth="3" color="#A0784A"></a-box>
+  <a-box position="4 0.65 -1"  width="0.04" height="0.08" depth="3" color="#A0784A"></a-box>
+
+  <!-- Background trees -->
+  <a-cylinder position="-5 0.7 -4" radius="0.12" height="1.4" color="#5C3D1E"></a-cylinder>
+  <a-cone     position="-5 1.8 -4" radius-bottom="0.9" height="2" color="#1b4332"></a-cone>
+  <a-cylinder position="5 0.7 -4"  radius="0.12" height="1.4" color="#5C3D1E"></a-cylinder>
+  <a-cone     position="5 1.8 -4"  radius-bottom="0.9" height="2" color="#1b4332"></a-cone>
+  <a-cylinder position="0 0.7 -6"  radius="0.12" height="1.4" color="#5C3D1E"></a-cylinder>
+  <a-cone     position="0 1.8 -6"  radius-bottom="0.9" height="2" color="#2d6a4f"></a-cone>
+
+  <!-- Flower patches -->
+  <a-sphere position="-2 0.12 3.5" radius="0.12" color="#f4a261"></a-sphere>
+  <a-sphere position="-2.3 0.12 3.2" radius="0.1" color="#e76f51"></a-sphere>
+  <a-sphere position="-1.8 0.12 3.8" radius="0.11" color="#ffb703"></a-sphere>
+  <a-sphere position="2 0.12 3.5"  radius="0.12" color="#f4a261"></a-sphere>
+  <a-sphere position="2.3 0.12 3.2" radius="0.1" color="#e76f51"></a-sphere>
+  <a-sphere position="1.8 0.12 3.8" radius="0.11" color="#ffb703"></a-sphere>
+
+  <!-- ============================================================
+       TABLE
+       Table-top: box; four legs: cylinders
+  ============================================================ -->
+  <!-- Table-top -->
+  <a-box id="tabletop"
+         position="0 0.82 -0.5"
+         width="1.8" height="0.06" depth="1"
+         color="#8B4513"></a-box>
+
+  <!-- Table legs -->
+  <a-cylinder position="-0.8 0.4 -0.1"  radius="0.05" height="0.8" color="#6B3410"></a-cylinder>
+  <a-cylinder position=" 0.8 0.4 -0.1"  radius="0.05" height="0.8" color="#6B3410"></a-cylinder>
+  <a-cylinder position="-0.8 0.4 -0.9"  radius="0.05" height="0.8" color="#6B3410"></a-cylinder>
+  <a-cylinder position=" 0.8 0.4 -0.9"  radius="0.05" height="0.8" color="#6B3410"></a-cylinder>
+
+  <!-- ============================================================
+       CHAIR 1 – left side of table
+  ============================================================ -->
+  <!-- Seat -->
+  <a-box position="-1.3 0.5 -0.5" width="0.6" height="0.05" depth="0.6" color="#A0522D"></a-box>
+  <!-- Back rest -->
+  <a-box position="-1.3 0.85 -0.8" width="0.6" height="0.6" depth="0.05" color="#A0522D"></a-box>
+  <!-- Legs -->
+  <a-cylinder position="-1.6 0.25 -0.2" radius="0.03" height="0.5" color="#7B3B1A"></a-cylinder>
+  <a-cylinder position="-1.0 0.25 -0.2" radius="0.03" height="0.5" color="#7B3B1A"></a-cylinder>
+  <a-cylinder position="-1.6 0.25 -0.8" radius="0.03" height="0.5" color="#7B3B1A"></a-cylinder>
+  <a-cylinder position="-1.0 0.25 -0.8" radius="0.03" height="0.5" color="#7B3B1A"></a-cylinder>
+
+  <!-- ============================================================
+       CHAIR 2 – right side of table
+  ============================================================ -->
+  <!-- Seat -->
+  <a-box position="1.3 0.5 -0.5" width="0.6" height="0.05" depth="0.6" color="#A0522D"></a-box>
+  <!-- Back rest -->
+  <a-box position="1.3 0.85 -0.8" width="0.6" height="0.6" depth="0.05" color="#A0522D"></a-box>
+  <!-- Legs -->
+  <a-cylinder position="1.6 0.25 -0.2" radius="0.03" height="0.5" color="#7B3B1A"></a-cylinder>
+  <a-cylinder position="1.0 0.25 -0.2" radius="0.03" height="0.5" color="#7B3B1A"></a-cylinder>
+  <a-cylinder position="1.6 0.25 -0.8" radius="0.03" height="0.5" color="#7B3B1A"></a-cylinder>
+  <a-cylinder position="1.0 0.25 -0.8" radius="0.03" height="0.5" color="#7B3B1A"></a-cylinder>
+
+  <!-- ============================================================
+       ITEMS ON THE TABLE  (y = tabletop 0.82 + 0.03 offset = 0.85)
+  ============================================================ -->
+
+  <!-- - - - - - MILO TIN - - - - - -->
+  <!-- Cylinder body (dark green) -->
+  <a-cylinder position="-0.5 1.02 -0.5"
+              radius="0.1" height="0.28"
+              color="#2d5016"></a-cylinder>
+  <!-- Label band (lighter green stripe) -->
+  <a-cylinder position="-0.5 1.01 -0.5"
+              radius="0.101" height="0.16"
+              color="#4a7c1f" open-ended="true"></a-cylinder>
+  <!-- Lid -->
+  <a-cylinder position="-0.5 1.16 -0.5"
+              radius="0.104" height="0.03"
+              color="#1a3a0a"></a-cylinder>
+
+  <!-- - - - - - MILK TIN - - - - - -->
+  <!-- Cylinder body (silver / light grey) -->
+  <a-cylinder position="0.5 1.02 -0.5"
+              radius="0.1" height="0.28"
+              color="#d0d0d0"></a-cylinder>
+  <!-- Label band (white stripe) -->
+  <a-cylinder position="0.5 1.01 -0.5"
+              radius="0.101" height="0.16"
+              color="#f0f0f0" open-ended="true"></a-cylinder>
+  <!-- Lid -->
+  <a-cylinder position="0.5 1.16 -0.5"
+              radius="0.104" height="0.03"
+              color="#a0a0a0"></a-cylinder>
+
+  <!-- - - - - - CUP 1 - - - - - -->
+  <!-- Body (open-top cylinder) -->
+  <a-cylinder position="-0.2 0.93 -0.35"
+              radius="0.065" height="0.16"
+              color="#e0c8a0" open-ended="true"
+              side="double"></a-cylinder>
+  <!-- Base -->
+  <a-cylinder position="-0.2 0.855 -0.35"
+              radius="0.065" height="0.01"
+              color="#c8b080"></a-cylinder>
+  <!-- Handle (torus) -->
+  <a-torus position="-0.14 0.92 -0.35"
+           radius="0.038" radius-tubular="0.008"
+           rotation="0 90 0"
+           color="#c8b080"></a-torus>
+
+  <!-- - - - - - CUP 2 - - - - - -->
+  <a-cylinder position="0.2 0.93 -0.35"
+              radius="0.065" height="0.16"
+              color="#e0c8a0" open-ended="true"
+              side="double"></a-cylinder>
+  <a-cylinder position="0.2 0.855 -0.35"
+              radius="0.065" height="0.01"
+              color="#c8b080"></a-cylinder>
+  <a-torus position="0.26 0.92 -0.35"
+           radius="0.038" radius-tubular="0.008"
+           rotation="0 90 0"
+           color="#c8b080"></a-torus>
+
+  <!-- ============================================================
+       CAMERA / PLAYER
+  ============================================================ -->
+  <a-camera position="0 1.6 3" look-controls wasd-controls>
+    <a-cursor color="#ffffff" fuse="false"></a-cursor>
+  </a-camera>
+
+</a-scene>
+
+</body>
+</html>
